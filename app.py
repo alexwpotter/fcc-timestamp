@@ -5,7 +5,7 @@ chop_time = lambda x: int(str(x)[:-3])
 @app.route('/<ts>')
 def index(ts=None):
 	ts = str(urllib.unquote(ts))
-	if ts != None:
+	if ts != None and ts != 'favicon.ico':
 		if re.match(r'[A-z].+',ts) != None:
 			natural = ts
 			unix = chop_time(time.mktime(time.strptime(ts,'%B %d, %Y')))
