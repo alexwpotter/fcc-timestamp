@@ -1,5 +1,5 @@
 from flask import Flask,render_template,make_response
-import time,re,urllib
+import time,re,urllib,sys
 app = Flask(__name__)
 chop_time = lambda x: int(str(x)[:-3])
 @app.route('/<ts>')
@@ -27,4 +27,4 @@ def ndx():
 	return resp
 
 if __name__ == "__main__":
-	app.run(host="0.0.0.0",port=80)
+	app.run(host="0.0.0.0",port=sys.argv[1])
